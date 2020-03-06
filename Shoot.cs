@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Shoot : MonoBehaviour
 {
-    // Instantiate a prefab with an attached Missile script
+    
     public Rigidbody missilePrefab;
     public float bulletSpeed = 100, fireRate = .2f, clipCount = 30, totalAmmo = 100;
     public bool autoFire = false;
@@ -56,6 +56,7 @@ public class Shoot : MonoBehaviour
                 textClipCount.text = clipCount.ToString();
                 aud.PlayOneShot(gunshot);
                 print("Pow!");
+                Destroy(clone.gameObject, 2);
                 yield return new WaitForSeconds(fireRate);
             }
         } else {
